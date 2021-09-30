@@ -1,11 +1,11 @@
 import React from "react";
 
 interface OwnProps {
-  dataUrl?: string;
+  hidden?: boolean;
 }
 
-const TableRowAction: React.FC<OwnProps> = ({ dataUrl }: OwnProps) => {
-  return <div>TableRow url : {dataUrl}</div>;
+const TableRowAction: React.FC<OwnProps> = ({ hidden }: OwnProps) => {
+  return <div className="tablerow-actions">{hidden ? "" : "Delete"}</div>;
 };
 
 export default TableRowAction;

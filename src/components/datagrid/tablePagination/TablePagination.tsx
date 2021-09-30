@@ -5,7 +5,7 @@ interface OwnProps {
 }
 
 const TablePagination: React.FC<OwnProps> = ({ dataUrl }: OwnProps) => {
-  return <div>TableRow url : {dataUrl}</div>;
+  return <div>table pagination url : {dataUrl}</div>;
 };
 
 export default TablePagination;

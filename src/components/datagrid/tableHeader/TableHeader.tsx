@@ -1,16 +1,28 @@
 import React from "react";
 
+import TableRow from "../tableRow";
+import TableCell from "../tableCell";
+import TableRowAction from "../tableRowAction";
+import { TableRowActionProps } from "../DataGrid.types";
+
 interface OwnProps {
-  data?: string;
-  rowKey: string;
-  children?: React.ReactNode;
+  gridKey: string;
+  columns: string[];
+  tableRowActions?: TableRowActionProps[];
 }
 
-const TableHeader: React.FC<OwnProps> = ({ rowKey, children }: OwnProps) => {
+const TableHeader: React.FC<OwnProps> = ({
+  gridKey,
+  columns,
+  tableRowActions,
+}: OwnProps) => {
   return (
-    <div key={rowKey} className="table-row">
-      {children}
-    </div>
+    <TableRow rowKey={`${gridKey}-rowheader`}>
+      {columns.map((column: string, index: number) => (
+        <TableCell key={`${gridKey}-cellheader${index}`} cellValue={column} />
+      ))}
+      {true ? <TableRowAction hidden /> : null}
+    </TableRow>
   );
 };
 

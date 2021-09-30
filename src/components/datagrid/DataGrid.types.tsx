@@ -1,9 +1,15 @@
 export interface PaginationProps {
-  pageNumber: number;
+  pageNumber?: number;
   limit: number;
   totalCount: number;
   onNext: () => void;
   onPrev: () => void;
+  show: boolean;
+}
+
+export interface TableRowActionProps {
+  name: string;
+  onAction: () => string;
 }
 
 export interface TableRowProps {
@@ -13,7 +19,7 @@ export interface TableRowProps {
 export interface DataGridProps {
   pagination?: PaginationProps;
   columns: string[];
-  pageSize?: number;
-  rows?: TableRowProps;
+  rows: TableRowProps;
   gridKey: string;
+  tableRowActions?: TableRowActionProps[];
 }

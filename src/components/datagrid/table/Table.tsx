@@ -1,11 +1,11 @@
 import React from "react";
 
 interface OwnProps {
-  dataUrl?: string;
+  children?: React.ReactNode;
 }
 
-const Table: React.FC<OwnProps> = ({ dataUrl }: OwnProps) => {
-  return <div>TableRow url : {dataUrl}</div>;
+const Table: React.FC<OwnProps> = ({ children }: OwnProps) => {
+  return <div className="table">{children}</div>;
 };
 
 export default Table;

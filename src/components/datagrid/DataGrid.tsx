@@ -1,7 +1,9 @@
 import React from "react";
 
-import TableRow from "./tableRow";
-import TableCell from "./tableCell";
+import Table from "./table";
+import TableHeader from "./tableHeader";
+import TableBody from "./tableBody";
+import TablePagination from "./tablePagination";
 import { DataGridProps } from "./DataGrid.types";
 import "./DataGrid.css";
 
@@ -10,28 +12,23 @@ const DataGrid: React.FC<DataGridProps> = ({
   columns,
   rows,
   gridKey,
+  tableRowActions,
 }: DataGridProps) => {
   return (
-    <div className="table">
-      <TableRow rowKey={`${gridKey}-rowheader`}>
-        {columns.map((column: string, index: number) => (
-          <TableCell
-            cellKey={`${gridKey}-cellheader${index}`}
-            cellValue={column}
-          />
-        ))}
-      </TableRow>
-      {rows?.map((rowData: any, rindex: number) => (
-        <TableRow rowKey={`${gridKey}-row${rindex}`}>
-          {columns.map((column, cindex: number) => (
-            <TableCell
-              cellKey={`${gridKey}-cell${rindex}${cindex}`}
-              cellValue={rowData[column]}
-            />
-          ))}
-        </TableRow>
-      ))}
-    </div>
+    <Table>
+      <TableHeader
+        columns={columns}
+        gridKey={gridKey}
+        tableRowActions={tableRowActions}
+      />
+      <TableBody
+        columns={columns}
+        rows={rows}
+        gridKey={gridKey}
+        tableRowActions={tableRowActions}
+      />
+      {pagination && pagination?.show ? <TablePagination /> : null}
+    </Table>
   );
 };
 
