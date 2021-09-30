@@ -25,7 +25,7 @@ const useCustomersHook = () => {
   };
 
   useEffect(() => {
-    // umake a fetch call to the API and get new data and set it to the customer
+    // make a fetch call to the API and get new data and set the data
     setCustomers([]);
   }, [pageNumber]);
 

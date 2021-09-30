@@ -1,15 +1,15 @@
-import { BASE_URL, HEADERS } from "./constants";
-// export const createRoom = async (BASE_URL:string, name) => {
+import {
+  BASE_URL,
+  HEADERS,
+  defaultPageLimit,
+  defaultPageNumber,
+} from "./constants";
 
-//   return await fetch(`${BASE_URL}${ROOMS}/${name}`, {
-//     method: "POST",
-//     headers: HEADERS,
-//     body: JSON.stringify({ name: name, privacy: "public" }),
-//   });
-// };
-
-export const getData = async () => {
-  return await fetch(`${BASE_URL}`);
+export const getData = async (
+  pageNumber: number = defaultPageNumber,
+  limit: number = defaultPageLimit
+) => {
+  return await fetch(`${BASE_URL}?pageNumber=${pageNumber}&limit=${limit}`);
 };
 
 export const deleteRow = async (id: String) => {
