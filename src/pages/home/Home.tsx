@@ -5,13 +5,13 @@ import useCustomersHook from "./Home.hooks";
 import "./Home.css";
 
 const Home: React.FC = () => {
-  const { customers } = useCustomersHook();
+  const { customers, totalDataCount, pageNumber, loading } = useCustomersHook();
   console.log("customers", customers);
   return (
     <div className="container">
-      <div>Customers</div>
+      <div>Customers : {totalDataCount}</div>
       <DataGrid
-        columns={["id", "title"]}
+        columns={["name", "due_amount", "total_products"]}
         rows={customers}
         gridKey="customer-grid"
       />

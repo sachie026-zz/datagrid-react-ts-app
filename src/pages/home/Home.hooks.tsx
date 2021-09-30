@@ -13,15 +13,22 @@ interface Customer {
 const useCustomersHook = () => {
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [pageNumber, setPageNumber] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [totalDataCount, setTotalDataCount] = useState(0);
 
   const updatePageNumber = (newPageNumber: number) => {
     setPageNumber(newPageNumber);
   };
 
   const getCustomers = async () => {
-    await getData()
+    setLoading(true);
+    await getData(2, 3)
       .then((result) => result.json())
-      .then((res) => setCustomers(res));
+      .then((res) => {
+        setCustomers(res.data);
+        setTotalDataCount(res.totalCount);
+        setLoading(false);
+      });
   };
 
   useEffect(() => {
@@ -38,6 +45,8 @@ const useCustomersHook = () => {
     customers,
     pageNumber,
     getCustomers,
+    totalDataCount,
+    loading,
     updateCustomers,
     updatePageNumber,
   };

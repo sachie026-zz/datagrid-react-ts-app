@@ -2,37 +2,30 @@ import React from "react";
 
 import TableRow from "./tableRow";
 import TableCell from "./tableCell";
+import { DataGridProps } from "./DataGrid.types";
 import "./DataGrid.css";
 
-interface RowOriginalProps {
-  id?: string;
-}
-
-interface RowProps extends RowOriginalProps {
-  [key: string]: any;
-}
-
-interface OwnProps {
-  pagination?: boolean;
-  columns?: string[];
-  pageSize?: number;
-  rows?: RowProps;
-  gridKey: string;
-}
-
-const DataGrid: React.FC<OwnProps> = ({
+const DataGrid: React.FC<DataGridProps> = ({
   pagination,
   columns,
   rows,
   gridKey,
-}: OwnProps) => {
+}: DataGridProps) => {
   return (
     <div className="table">
+      <TableRow rowKey={`${gridKey}-rowheader`}>
+        {columns.map((column: string, index: number) => (
+          <TableCell
+            cellKey={`${gridKey}-cellheader${index}`}
+            cellValue={column}
+          />
+        ))}
+      </TableRow>
       {rows?.map((rowData: any, rindex: number) => (
         <TableRow rowKey={`${gridKey}-row${rindex}`}>
-          {Object.keys(rowData).map((column, cindex: number) => (
+          {columns.map((column, cindex: number) => (
             <TableCell
-              cellKey={`${gridKey}-cell${cindex}`}
+              cellKey={`${gridKey}-cell${rindex}${cindex}`}
               cellValue={rowData[column]}
             />
           ))}
