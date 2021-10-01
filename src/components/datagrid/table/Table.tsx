@@ -5,7 +5,7 @@ interface OwnProps {
 }
 
 const Table: React.FC<OwnProps> = ({ children }: OwnProps) => {
-  return <div className="table">{children}</div>;
+  return <table className="table">{children}</table>;
 };
 
 export default Table;

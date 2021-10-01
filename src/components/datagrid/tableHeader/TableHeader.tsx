@@ -19,7 +19,11 @@ const TableHeader: React.FC<OwnProps> = ({
   return (
     <TableRow rowKey={`${gridKey}-rowheader`}>
       {columns.map((column: string, index: number) => (
-        <TableCell key={`${gridKey}-cellheader${index}`} cellValue={column} />
+        <TableCell
+          key={`${gridKey}-cellheader${index}`}
+          cellValue={column}
+          className="table-cell-header"
+        />
       ))}
       {true ? <TableRowAction hidden /> : null}
     </TableRow>

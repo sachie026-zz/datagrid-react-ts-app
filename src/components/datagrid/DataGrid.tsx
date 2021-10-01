@@ -15,22 +15,24 @@ const DataGrid: React.FC<DataGridProps> = ({
   tableRowActions,
 }: DataGridProps) => {
   return (
-    <Table>
-      <TableHeader
-        columns={columns}
-        gridKey={gridKey}
-        tableRowActions={tableRowActions}
-      />
-      <TableBody
-        columns={columns}
-        rows={rows}
-        gridKey={gridKey}
-        tableRowActions={tableRowActions}
-      />
+    <div className="table-container">
+      <Table>
+        <TableHeader
+          columns={columns}
+          gridKey={gridKey}
+          tableRowActions={tableRowActions}
+        />
+        <TableBody
+          columns={columns}
+          rows={rows}
+          gridKey={gridKey}
+          tableRowActions={tableRowActions}
+        />
+      </Table>
       {pagination && pagination?.show ? (
         <TablePagination pagination={pagination} />
       ) : null}
-    </Table>
+    </div>
   );
 };
 

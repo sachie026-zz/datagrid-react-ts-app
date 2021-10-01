@@ -1,15 +1,30 @@
-.table {
+.table-container {
   background: white;
-  display: flex;
-  flex-direction: column;
+  border-radius: 5px;
+  border: 1px solid #eee;
 }
 
 .table-row {
   border-bottom: 1px solid #f0f0f0;
-  padding: 16px 24px;
-  display: flex;
+  padding: 24px;
+  height: 50px;
 }
 
-.table-cell {
-    padding: 0px 8px;
+.table-cell,
+.table-cell-header {
+  padding: 0px 16px;
+}
+
+.table-cell-header {
+  resize: horizontal;
+  background: #f3f5f8;
+  padding: 8px 16px;
+}
+
+table {
+  border-collapse: separate;
+  text-indent: initial;
+  border-spacing: 1px;
+  padding: 16px;
+  width: 100%;
 }

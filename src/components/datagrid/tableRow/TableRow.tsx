@@ -8,9 +8,9 @@ interface OwnProps {
 
 const TableRow: React.FC<OwnProps> = ({ rowKey, children }: OwnProps) => {
   return (
-    <div key={rowKey} className="table-row">
+    <tr key={rowKey} className="table-row">
       {children}
-    </div>
+    </tr>
   );
 };
 

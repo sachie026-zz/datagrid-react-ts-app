@@ -5,7 +5,7 @@ interface OwnProps {
 }
 
 const TableRowAction: React.FC<OwnProps> = ({ hidden }: OwnProps) => {
-  return <div className="tablerow-actions">{hidden ? "" : "Delete"}</div>;
+  return <td className="tablerow-actions">{hidden ? "" : "Delete"}</td>;
 };
 
 export default TableRowAction;
