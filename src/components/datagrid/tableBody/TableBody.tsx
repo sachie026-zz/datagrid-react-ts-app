@@ -6,7 +6,7 @@ import TableRowAction from "../tableRowAction";
 import { TableRowProps, TableRowActionProps } from "../DataGrid.types";
 
 interface OwnProps {
-  rows: TableRowProps;
+  rows: any;
   gridKey: string;
   columns: string[];
   tableRowActions?: TableRowActionProps[];
@@ -18,20 +18,28 @@ const TableBody: React.FC<OwnProps> = ({
   columns,
   tableRowActions,
 }: OwnProps) => {
-  return rows?.map((rowData: any, rindex: number) => (
-    <TableRow
-      key={`tablebodyrow-${gridKey}-row${rindex}`}
-      rowKey={`${gridKey}-row${rindex}`}
-    >
-      {columns.map((column, cindex: number) => (
-        <TableCell
-          key={`tablebodycell${gridKey}-cell${rindex}${cindex}`}
-          cellValue={rowData[column]}
-        />
+  return (
+    <tbody>
+      {rows?.map((rowData: any, rindex: number) => (
+        <TableRow
+          key={`tablebodyrow-${gridKey}-row${rindex}`}
+          rowKey={`${gridKey}-row${rindex}`}
+        >
+          {columns.map(
+            (column, cindex: number) =>
+              // check if key is valid and not empty i.e. column &&
+              column && (
+                <TableCell
+                  key={`tablebodycell${gridKey}-cell${rindex}${cindex}`}
+                  cellValue={rowData[column]}
+                />
+              )
+          )}
+          <TableRowAction />
+        </TableRow>
       ))}
-      <TableRowAction />
-    </TableRow>
-  ));
+    </tbody>
+  );
 };
 
-export default TableBody;
+export default React.memo(TableBody);

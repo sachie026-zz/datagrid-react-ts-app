@@ -13,13 +13,13 @@ export interface TableRowActionProps {
 }
 
 export interface TableRowProps {
-  [key: string]: any;
+  [key: string]: any[];
 }
 
 export interface DataGridProps {
   pagination?: PaginationProps;
   columns: string[];
-  rows: TableRowProps;
+  rows: any[];
   gridKey: string;
   tableRowActions?: TableRowActionProps[];
 }

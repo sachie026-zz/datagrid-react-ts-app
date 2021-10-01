@@ -19,4 +19,4 @@ const TablePaginationData: React.FC<OwnProps> = ({
   );
 };
 
-export default TablePaginationData;
+export default React.memo(TablePaginationData);

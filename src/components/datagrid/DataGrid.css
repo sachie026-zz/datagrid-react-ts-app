@@ -10,15 +10,8 @@
   height: 50px;
 }
 
-.table-cell,
-.table-cell-header {
+.table-cell {
   padding: 0px 16px;
-}
-
-.table-cell-header {
-  resize: horizontal;
-  background: #f3f5f8;
-  padding: 8px 16px;
 }
 
 table {

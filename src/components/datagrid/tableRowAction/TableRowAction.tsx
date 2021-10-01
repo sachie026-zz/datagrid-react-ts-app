@@ -8,4 +8,4 @@ const TableRowAction: React.FC<OwnProps> = ({ hidden }: OwnProps) => {
   return <td className="tablerow-actions">{hidden ? "" : "Delete"}</td>;
 };
 
-export default TableRowAction;
+export default React.memo(TableRowAction);

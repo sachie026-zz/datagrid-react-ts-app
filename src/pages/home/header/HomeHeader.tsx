@@ -1,7 +1,11 @@
 import React from "react";
 
-const HomeHeader: React.FC = () => {
-  return <div>Home header</div>;
+interface OwnProps {
+  totalDataCount: number;
+}
+
+const HomeHeader: React.FC<OwnProps> = ({ totalDataCount }: OwnProps) => {
+  return <div>Customers : {totalDataCount}</div>;
 };
 
 export default HomeHeader;

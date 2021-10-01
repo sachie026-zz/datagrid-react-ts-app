@@ -17,4 +17,4 @@ const TablePaginationAction: React.FC<OwnProps> = ({
   );
 };
 
-export default TablePaginationAction;
+export default React.memo(TablePaginationAction);

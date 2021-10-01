@@ -8,4 +8,4 @@ const Table: React.FC<OwnProps> = ({ children }: OwnProps) => {
   return <table className="table">{children}</table>;
 };
 
-export default Table;
+export default React.memo(Table);

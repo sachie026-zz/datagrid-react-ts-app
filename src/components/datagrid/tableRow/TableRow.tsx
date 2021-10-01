@@ -14,4 +14,4 @@ const TableRow: React.FC<OwnProps> = ({ rowKey, children }: OwnProps) => {
   );
 };
 
-export default TableRow;
+export default React.memo(TableRow);

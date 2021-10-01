@@ -1,6 +1,7 @@
 import React from "react";
 
 import DataGrid from "../../components/datagrid";
+import HomeHeader from "./header";
 import useCustomersHook from "./Home.hooks";
 import { defaultPageLimit } from "../../common/constants";
 import "./Home.css";
@@ -22,7 +23,7 @@ const Home: React.FC = () => {
   console.log("customers", customers);
   return (
     <div className="container">
-      <div>Customers : {totalDataCount}</div>
+      <HomeHeader totalDataCount={totalDataCount} />
       <DataGrid
         columns={["name", "due_amount", "total_products"]}
         rows={customers}
@@ -33,19 +34,11 @@ const Home: React.FC = () => {
           totalCount: totalDataCount,
           show: true,
           onNext: () => {
-            console.log(
-              "onNext",
-              pageNumber,
-              defaultPageLimit,
-              totalDataCount,
-              isPossibleToFetchNextData
-            );
             if (isPossibleToFetchNextData) {
               updateCustomers(pageNumber + 1, defaultPageLimit);
             }
           },
           onPrev: () => {
-            console.log("onPrev", isPossibleToFetchPrevData);
             if (isPossibleToFetchPrevData) {
               updateCustomers(pageNumber - 1, defaultPageLimit);
             }
