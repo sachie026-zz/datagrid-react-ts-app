@@ -3,7 +3,6 @@ import React from "react";
 import DataGrid from "../../components/datagrid";
 import HomeHeader from "./header";
 import useCustomersHook from "./Home.hooks";
-import { defaultPageLimit } from "../../common/constants";
 import "./Home.css";
 
 const Home: React.FC = () => {
@@ -14,10 +13,11 @@ const Home: React.FC = () => {
     loading,
     updatePageNumber,
     updateCustomers,
+    pageLimit,
+    updatePageLimit,
   } = useCustomersHook();
 
-  const isPossibleToFetchNextData =
-    (pageNumber + 1) * defaultPageLimit <= totalDataCount;
+  const isPossibleToFetchNextData = pageNumber * pageLimit < totalDataCount;
   const isPossibleToFetchPrevData = pageNumber > 1;
 
   console.log("customers", customers);
@@ -28,19 +28,26 @@ const Home: React.FC = () => {
         columns={["name", "due_amount", "total_products"]}
         rows={customers}
         gridKey="customer-grid"
+        pageLimitValues={[5, 10, 15]}
+        selectedPageLimit={pageLimit}
+        onPageLimitChange={(val) => {
+          updatePageLimit(val);
+          updateCustomers(pageNumber, val);
+          console.log("val", val);
+        }}
         pagination={{
           pageNumber: pageNumber,
-          limit: defaultPageLimit,
+          limit: pageLimit,
           totalCount: totalDataCount,
           show: true,
           onNext: () => {
             if (isPossibleToFetchNextData) {
-              updateCustomers(pageNumber + 1, defaultPageLimit);
+              updateCustomers(pageNumber + 1, pageLimit);
             }
           },
           onPrev: () => {
             if (isPossibleToFetchPrevData) {
-              updateCustomers(pageNumber - 1, defaultPageLimit);
+              updateCustomers(pageNumber - 1, pageLimit);
             }
           },
         }}

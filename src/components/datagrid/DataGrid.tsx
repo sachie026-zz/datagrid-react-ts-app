@@ -4,6 +4,7 @@ import Table from "./table";
 import TableHeader from "./tableHeader";
 import TableBody from "./tableBody";
 import TablePagination from "./tablePagination";
+import TableFooter from "./tableFooter";
 import useDataGridhooks from "./DataGrid.hooks";
 import { DataGridProps } from "./DataGrid.types";
 import "./DataGrid.css";
@@ -14,8 +15,17 @@ const DataGrid: React.FC<DataGridProps> = ({
   rows,
   gridKey,
   tableRowActions,
+  pageLimitValues,
+  selectedPageLimit,
+  onPageLimitChange,
 }: DataGridProps) => {
-  const { tableRows, sortTableRows, updateTableRows } = useDataGridhooks(rows);
+  const {
+    tableRows,
+    sortTableRows,
+    updateTableRows,
+    pageLimit,
+    updatePageLimit,
+  } = useDataGridhooks(rows, selectedPageLimit);
 
   useEffect(() => {
     updateTableRows(rows);
@@ -41,9 +51,13 @@ const DataGrid: React.FC<DataGridProps> = ({
           tableRowActions={tableRowActions}
         />
       </Table>
-      {pagination && pagination?.show ? (
-        <TablePagination pagination={pagination} />
-      ) : null}
+      <TableFooter
+        pagination={pagination}
+        pageLimits={pageLimitValues}
+        currentPageLimit={pageLimit}
+        updatePageLimit={updatePageLimit}
+        onPageLimitChange={onPageLimitChange}
+      />
     </div>
   );
 };

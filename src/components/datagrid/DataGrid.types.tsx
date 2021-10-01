@@ -22,4 +22,7 @@ export interface DataGridProps {
   rows: any[];
   gridKey: string;
   tableRowActions?: TableRowActionProps[];
+  pageLimitValues?: number[];
+  selectedPageLimit?: number;
+  onPageLimitChange: (newLimit: number) => void;
 }

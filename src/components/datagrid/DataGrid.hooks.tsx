@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import { TableRowProps } from "./DataGrid.types";
 
-const useDataGridhooks = (dataRows: any[]) => {
+const useDataGridhooks = (dataRows: any[], selectedPageLimit?: number) => {
   const [tableRows, setTableRows] = useState(dataRows);
+  const [pageLimit, setPageLimit] = useState(selectedPageLimit);
   const [sortDescOrder, setSortDescOrder] = useState(false);
 
   const sortTableRows = (key: string) => {
@@ -20,10 +21,16 @@ const useDataGridhooks = (dataRows: any[]) => {
     setTableRows(updatedRows);
   };
 
+  const updatePageLimit = (newPageLimit: number) => {
+    setPageLimit(newPageLimit);
+  };
+
   return {
     tableRows,
     sortTableRows,
     updateTableRows,
+    pageLimit,
+    updatePageLimit,
   };
 };
 

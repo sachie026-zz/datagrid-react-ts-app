@@ -14,6 +14,7 @@ interface Customer {
 const useCustomersHook = () => {
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [pageNumber, setPageNumber] = useState(0);
+  const [pageLimit, setPageLimit] = useState(defaultPageLimit);
   const [loading, setLoading] = useState(false);
   const [totalDataCount, setTotalDataCount] = useState(0);
 
@@ -21,9 +22,9 @@ const useCustomersHook = () => {
     setPageNumber(newPageNumber);
   };
 
-  const getCustomers = async (page: number, pageLimit: number) => {
+  const getCustomers = async (page: number, limit: number) => {
     setLoading(true);
-    await getData(page, pageLimit)
+    await getData(page, limit)
       .then((result) => result.json())
       .then((res) => {
         setCustomers(res.data);
@@ -38,21 +39,28 @@ const useCustomersHook = () => {
   //   setCustomers([]);
   // }, [pageNumber]);
 
+  const updateCustomers = (page: number, limit: number) => {
+    getCustomers(page, limit);
+  };
+
+  const updatePageLimit = (limit: number) => {
+    setPageLimit(limit);
+  };
+
   useEffect(() => {
-    getCustomers(1, defaultPageLimit);
+    getCustomers(1, pageLimit);
   }, []);
 
-  const updateCustomers = (page: number, pageLimit: number) => {
-    getCustomers(page, pageLimit);
-  };
   return {
     customers,
     pageNumber,
+    pageLimit,
     getCustomers,
     totalDataCount,
     loading,
     updateCustomers,
     updatePageNumber,
+    updatePageLimit,
   };
 };
 
