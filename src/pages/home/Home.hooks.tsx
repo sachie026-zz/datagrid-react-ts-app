@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { getData } from "../../common/apiUtil";
+import { defaultPageLimit } from "../../common/constants";
 
 interface Customer {
   id: string;
@@ -20,27 +21,30 @@ const useCustomersHook = () => {
     setPageNumber(newPageNumber);
   };
 
-  const getCustomers = async () => {
+  const getCustomers = async (page: number, pageLimit: number) => {
     setLoading(true);
-    await getData(2, 3)
+    await getData(page, pageLimit)
       .then((result) => result.json())
       .then((res) => {
         setCustomers(res.data);
         setTotalDataCount(res.totalCount);
         setLoading(false);
       });
+    setPageNumber(page);
   };
 
-  useEffect(() => {
-    // make a fetch call to the API and get new data and set the data
-    setCustomers([]);
-  }, [pageNumber]);
+  // useEffect(() => {
+  //   // make a fetch call to the API and get new data and set the data
+  //   setCustomers([]);
+  // }, [pageNumber]);
 
   useEffect(() => {
-    getCustomers();
+    getCustomers(1, defaultPageLimit);
   }, []);
 
-  const updateCustomers = () => {};
+  const updateCustomers = (page: number, pageLimit: number) => {
+    getCustomers(page, pageLimit);
+  };
   return {
     customers,
     pageNumber,

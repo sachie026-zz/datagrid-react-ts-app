@@ -27,7 +27,9 @@ const DataGrid: React.FC<DataGridProps> = ({
         gridKey={gridKey}
         tableRowActions={tableRowActions}
       />
-      {pagination && pagination?.show ? <TablePagination /> : null}
+      {pagination && pagination?.show ? (
+        <TablePagination pagination={pagination} />
+      ) : null}
     </Table>
   );
 };
