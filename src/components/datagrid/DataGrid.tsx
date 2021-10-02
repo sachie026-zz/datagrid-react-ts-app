@@ -21,7 +21,9 @@ const DataGrid: React.FC<DataGridProps> = ({
   selectedPageLimit,
   noResultLabel,
   loading,
+  editable,
   onPageLimitChange,
+  onEditCellHandler,
 }: DataGridProps) => {
   const {
     tableRows,
@@ -55,6 +57,8 @@ const DataGrid: React.FC<DataGridProps> = ({
           rows={tableRows}
           gridKey={gridKey}
           tableRowActions={tableRowActions}
+          editable={editable}
+          onEditCellHandler={onEditCellHandler}
         />
       </Table>
       <TableFooter

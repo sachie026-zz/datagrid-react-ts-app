@@ -1,15 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-import { getData, deleteRow } from "../../common/apiUtil";
+import { getData, deleteRow, updateRow } from "../../common/apiUtil";
 import { defaultPageLimit } from "../../common/constants";
-
-interface Customer {
-  id: string;
-  name: string;
-  totalProducts: number;
-  dueAmount: number;
-  title: string;
-}
+import { Customer } from "../../common/appTypes";
 
 const useCustomersHook = () => {
   const [customers, setCustomers] = useState<Customer[]>([]);
@@ -49,6 +42,18 @@ const useCustomersHook = () => {
       });
   };
 
+  const onUpdateRowData = (updatedRowData: Customer) => {
+    setLoading(true);
+    updateRow(updatedRowData._id, updatedRowData)
+      .then(() => {
+        getCustomers(pageNumber, pageLimit);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log("Error while updating customer", err);
+      });
+  };
+
   const updateCustomers = (page: number, limit: number) => {
     getCustomers(page, limit);
   };
@@ -73,6 +78,7 @@ const useCustomersHook = () => {
     updateCustomers,
     updatePageNumber,
     updatePageLimit,
+    onUpdateRowData,
   };
 };
 

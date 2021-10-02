@@ -5,6 +5,7 @@ import {
   defaultPageLimit,
   defaultPageNumber,
 } from "./constants";
+import { Customer } from "./appTypes";
 
 export const getData = async (
   pageNumber: number = defaultPageNumber,
@@ -22,10 +23,10 @@ export const deleteRow = async (id: String) => {
   });
 };
 
-export const updateRow = async (id: String, name: string) => {
+export const updateRow = async (id: String, data: Customer) => {
   return await fetch(`${BASE_URL}/${CUSTOMER_URL}/${id}`, {
     method: "PUT",
     headers: HEADERS,
-    body: JSON.stringify({ name: name }),
+    body: JSON.stringify(data),
   });
 };

@@ -36,7 +36,7 @@ const TableHeader: React.FC<OwnProps> = ({
             />
           )
       )}
-      {TableRowAction ? <TableRowAction hidden /> : null}
+      {tableRowActions ? <TableRowAction hidden /> : null}
     </TableRow>
   );
 };

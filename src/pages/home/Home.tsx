@@ -16,6 +16,7 @@ const Home: React.FC = () => {
     updatePageNumber,
     updateCustomers,
     updatePageLimit,
+    onUpdateRowData,
   } = useCustomersHook();
 
   const isPossibleToFetchNextData = pageNumber * pageLimit < totalDataCount;
@@ -25,12 +26,14 @@ const Home: React.FC = () => {
     <div className="container">
       <HomeHeader />
       <DataGrid
-        columns={["name", "due_amount", "total_products", "joined_at"]}
-        columnLabels={["Name", "Due Amount", "Total Products", "Joined"]}
+        editable
+        columns={["name", "due_amount", "total_products"]}
+        columnLabels={["Name", "Due Amount", "Total Products"]}
         rows={customers}
         gridKey="customer-grid"
         pageLimitValues={[5, 10, 15]}
         selectedPageLimit={pageLimit}
+        noResultLabel="No curstomers data!"
         onPageLimitChange={(val) => {
           // When page limit changes, need to reset page number to 1
           updatePageLimit(val);
@@ -64,7 +67,7 @@ const Home: React.FC = () => {
           },
         ]}
         loading={loading}
-        noResultLabel="No curstomers data!"
+        onEditCellHandler={onUpdateRowData}
       />
     </div>
   );

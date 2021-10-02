@@ -28,4 +28,6 @@ export interface DataGridProps {
   onPageLimitChange: (newLimit: number) => void;
   noResultLabel?: string;
   loading?: boolean;
+  editable?: boolean;
+  onEditCellHandler?: (rowData: any) => void;
 }
