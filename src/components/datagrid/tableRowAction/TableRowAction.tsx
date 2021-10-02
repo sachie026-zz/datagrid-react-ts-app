@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./TableRowAction.css";
+
 interface OwnProps {
   hidden?: boolean;
 }

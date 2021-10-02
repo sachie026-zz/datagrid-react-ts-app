@@ -19,6 +19,7 @@ export interface TableRowProps {
 export interface DataGridProps {
   pagination?: PaginationProps;
   columns: string[];
+  columnLabels: string[];
   rows: any[];
   gridKey: string;
   tableRowActions?: TableRowActionProps[];

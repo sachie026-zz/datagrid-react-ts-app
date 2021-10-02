@@ -9,6 +9,7 @@ import "./TableHeader.css";
 interface OwnProps {
   gridKey: string;
   columns: string[];
+  columnLabels: string[];
   tableRowActions?: TableRowActionProps[];
   onHeaderCellClick: (key: string) => void;
 }
@@ -16,6 +17,7 @@ interface OwnProps {
 const TableHeader: React.FC<OwnProps> = ({
   gridKey,
   columns,
+  columnLabels,
   tableRowActions,
   onHeaderCellClick,
 }: OwnProps) => {
@@ -27,13 +29,13 @@ const TableHeader: React.FC<OwnProps> = ({
           column && (
             <TableCell
               key={`${gridKey}-cellheader${index}`}
-              cellValue={column}
+              cellValue={columnLabels[index]}
               className="table-cell-header"
               onCellClick={onHeaderCellClick}
             />
           )
       )}
-      {true ? <TableRowAction /> : null}
+      {TableRowAction ? <TableRowAction hidden /> : null}
     </TableRow>
   );
 };

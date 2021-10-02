@@ -7,3 +7,9 @@
   padding: 50px;
   background: #f3f5f8;
 }
+
+.home-header {
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}

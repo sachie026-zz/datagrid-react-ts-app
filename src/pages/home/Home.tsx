@@ -22,9 +22,10 @@ const Home: React.FC = () => {
 
   return (
     <div className="container">
-      <HomeHeader totalDataCount={totalDataCount} />
+      <HomeHeader />
       <DataGrid
         columns={["name", "due_amount", "total_products"]}
+        columnLabels={["Name", "Due Amount", "Total Products"]}
         rows={customers}
         gridKey="customer-grid"
         pageLimitValues={[5, 10, 15]}

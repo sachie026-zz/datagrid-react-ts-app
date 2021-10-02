@@ -1,0 +1,9 @@
+.table-row {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 16px;
+  display: flex;
+}
+
+.table-row:hover {
+  background: #f3f5f8;
+}

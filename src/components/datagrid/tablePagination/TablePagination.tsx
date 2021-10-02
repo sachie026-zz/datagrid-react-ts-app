@@ -17,12 +17,16 @@ const TablePagination: React.FC<OwnProps> = ({ pagination }: OwnProps) => {
 
   return (
     <div className="pagination-row">
-      <TablePaginationAction onPrev={onPrev} onNext={onNext} />
-      <TablePaginationData
-        firstRowIndex={firstRowIndex}
-        lastRowIndex={lastRowIndex}
-        totalCount={totalCount}
-      />
+      {!!totalCount && (
+        <>
+          <TablePaginationAction onPrev={onPrev} onNext={onNext} />
+          <TablePaginationData
+            firstRowIndex={firstRowIndex}
+            lastRowIndex={lastRowIndex}
+            totalCount={totalCount}
+          />
+        </>
+      )}
     </div>
   );
 };

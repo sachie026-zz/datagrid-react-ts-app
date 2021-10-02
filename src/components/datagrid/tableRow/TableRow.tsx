@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./TableRow.css"
+
 interface OwnProps {
   data?: string;
   rowKey: string;

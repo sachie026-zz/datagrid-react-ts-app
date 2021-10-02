@@ -1,7 +1,7 @@
 .table-cell-header {
   resize: horizontal;
-  background: #f3f5f8;
-  padding: 8px 16px;
+  font-weight: 600;
+  padding: 8px;
   cursor: pointer;
   flex: 1;
 }

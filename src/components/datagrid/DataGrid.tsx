@@ -13,6 +13,7 @@ import "./DataGrid.css";
 const DataGrid: React.FC<DataGridProps> = ({
   pagination,
   columns,
+  columnLabels,
   rows,
   gridKey,
   tableRowActions,
@@ -34,7 +35,7 @@ const DataGrid: React.FC<DataGridProps> = ({
     updateTableRows(rows);
   }, [rows]);
 
-  if (!rows || rows.length === 0) {
+  if (!loading && (!rows || rows.length === 0)) {
     return <TableCenteredContent label={noResultLabel || "No data!"} />;
   }
 
@@ -44,6 +45,7 @@ const DataGrid: React.FC<DataGridProps> = ({
       <Table>
         <TableHeader
           columns={columns}
+          columnLabels={columnLabels}
           gridKey={gridKey}
           onHeaderCellClick={sortTableRows}
           tableRowActions={tableRowActions}

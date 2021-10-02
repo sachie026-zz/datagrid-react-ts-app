@@ -13,8 +13,8 @@ const TablePaginationData: React.FC<OwnProps> = ({
 }: OwnProps) => {
   return (
     <div className="pagination-data">
-      <span className="pagination-data-index">{`${firstRowIndex}-${lastRowIndex} `}</span>
-      <span className="pagination-data-total">{`of ${totalCount}`}</span>
+      <span className="pagination-data-index">{`${firstRowIndex} to ${lastRowIndex} `}</span>
+      <span className="pagination-data-total">{`of ${totalCount} rows`}</span>
     </div>
   );
 };
