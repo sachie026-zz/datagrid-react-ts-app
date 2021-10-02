@@ -25,4 +25,6 @@ export interface DataGridProps {
   pageLimitValues?: number[];
   selectedPageLimit?: number;
   onPageLimitChange: (newLimit: number) => void;
+  noResultLabel?: string;
+  loading?: boolean;
 }

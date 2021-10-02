@@ -3,8 +3,9 @@ import React, { useEffect } from "react";
 import Table from "./table";
 import TableHeader from "./tableHeader";
 import TableBody from "./tableBody";
-import TablePagination from "./tablePagination";
 import TableFooter from "./tableFooter";
+import TableLoader from "./tableLoader";
+import TableCenteredContent from "./tableCenteredContent";
 import useDataGridhooks from "./DataGrid.hooks";
 import { DataGridProps } from "./DataGrid.types";
 import "./DataGrid.css";
@@ -18,6 +19,8 @@ const DataGrid: React.FC<DataGridProps> = ({
   pageLimitValues,
   selectedPageLimit,
   onPageLimitChange,
+  noResultLabel,
+  loading,
 }: DataGridProps) => {
   const {
     tableRows,
@@ -31,12 +34,13 @@ const DataGrid: React.FC<DataGridProps> = ({
     updateTableRows(rows);
   }, [rows]);
 
-  useEffect(() => {
-    console.log("useeffetc tableRows", tableRows);
-  }, [tableRows]);
+  if (!rows || rows.length === 0) {
+    return <TableCenteredContent label={noResultLabel || "No data!"} />;
+  }
 
   return (
     <div className="table-container">
+      {loading && <TableLoader label="loading..." />}
       <Table>
         <TableHeader
           columns={columns}

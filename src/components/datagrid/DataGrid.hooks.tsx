@@ -1,3 +1,8 @@
+/*
+    Custom hook to manipulate data for the grid
+    i.e, page limit, data rows, sort action etc.
+*/
+
 import React, { useState, useEffect } from "react";
 
 import { TableRowProps } from "./DataGrid.types";

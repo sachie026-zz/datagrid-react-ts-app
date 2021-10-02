@@ -1,0 +1,10 @@
+.table-centered-container {
+  display: flex;
+  height: 75%;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+}

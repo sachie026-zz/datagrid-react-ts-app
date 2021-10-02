@@ -20,7 +20,6 @@ const Home: React.FC = () => {
   const isPossibleToFetchNextData = pageNumber * pageLimit < totalDataCount;
   const isPossibleToFetchPrevData = pageNumber > 1;
 
-  console.log("customers", customers);
   return (
     <div className="container">
       <HomeHeader totalDataCount={totalDataCount} />
@@ -52,6 +51,8 @@ const Home: React.FC = () => {
             }
           },
         }}
+        loading={loading}
+        noResultLabel="No curstomers data!"
       />
     </div>
   );

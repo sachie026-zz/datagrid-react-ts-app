@@ -1,0 +1,14 @@
+.table-loader-container {
+  position: absolute;
+  display: flex;
+  width: calc(100% - 100px);
+  padding-top: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.table-loader-label {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 24px 64px;
+  border-radius: 5px;
+}
