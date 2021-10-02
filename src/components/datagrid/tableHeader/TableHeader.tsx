@@ -29,7 +29,8 @@ const TableHeader: React.FC<OwnProps> = ({
           column && (
             <TableCell
               key={`${gridKey}-cellheader${index}`}
-              cellValue={columnLabels[index]}
+              cellLabel={columnLabels[index]}
+              cellValue={column}
               className="table-cell-header"
               onCellClick={onHeaderCellClick}
             />

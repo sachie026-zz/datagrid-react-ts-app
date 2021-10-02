@@ -34,11 +34,6 @@ const useCustomersHook = () => {
     setPageNumber(page);
   };
 
-  // useEffect(() => {
-  //   // make a fetch call to the API and get new data and set the data
-  //   setCustomers([]);
-  // }, [pageNumber]);
-
   const updateCustomers = (page: number, limit: number) => {
     getCustomers(page, limit);
   };
@@ -48,6 +43,7 @@ const useCustomersHook = () => {
   };
 
   useEffect(() => {
+    // On component mount: fetch customers for page number 1 and initial page limit
     getCustomers(1, pageLimit);
   }, []);
 

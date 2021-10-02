@@ -4,11 +4,6 @@
   border: 1px solid #eee;
 }
 
-.table-cell {
-  padding: 0px 8px;
-  flex: 1
-}
-
 table {
   border-collapse: separate;
   text-indent: initial;

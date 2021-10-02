@@ -21,8 +21,8 @@ const TablePageLimit: React.FC<OwnProps> = ({
         value={currentPageLimit}
         onChange={updateSelectedPageLimit}
       >
-        {pageLimits?.map((limit) => (
-          <option>{limit}</option>
+        {pageLimits?.map((limit, index: number) => (
+          <option key={`pagelimit${index}`}>{limit}</option>
         ))}
       </select>
     </div>

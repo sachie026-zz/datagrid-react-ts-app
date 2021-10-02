@@ -31,6 +31,7 @@ You need to install:
 - Yarn
 
 `Quick Start`
+
 - Make sure that you have Node.js, yarn or npm installed.
 - Create and move to appropriate directory
 - Clone the repo using 'git clone ...'
@@ -38,14 +39,16 @@ You need to install:
 - Install the dependencies: `yarn install` or `npm install`
 - Run `yarn start` or `npm start` and see the sample app at `http://localhost:3000`
 
-
 # DataGrid Component
 
 `How to use`
 
-
 `Props`
 
+`Examples`
+
 # Features
+
+- Used flex-box to make it little bit responsive
 
 # What more could be added in future or

@@ -24,8 +24,8 @@ const Home: React.FC = () => {
     <div className="container">
       <HomeHeader />
       <DataGrid
-        columns={["name", "due_amount", "total_products"]}
-        columnLabels={["Name", "Due Amount", "Total Products"]}
+        columns={["name", "due_amount", "total_products", "joined_at"]}
+        columnLabels={["Name", "Due Amount", "Total Products", "Joined"]}
         rows={customers}
         gridKey="customer-grid"
         pageLimitValues={[5, 10, 15]}
@@ -52,6 +52,14 @@ const Home: React.FC = () => {
             }
           },
         }}
+        tableRowActions={[
+          {
+            name: "Delete",
+            onAction: (data: any) => {
+              console.log(data);
+            },
+          },
+        ]}
         loading={loading}
         noResultLabel="No curstomers data!"
       />

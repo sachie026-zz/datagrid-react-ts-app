@@ -9,7 +9,7 @@ export interface PaginationProps {
 
 export interface TableRowActionProps {
   name: string;
-  onAction: () => string;
+  onAction: (data: any) => void;
 }
 
 export interface TableRowProps {

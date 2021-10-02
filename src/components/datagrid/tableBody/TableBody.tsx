@@ -33,7 +33,13 @@ const TableBody: React.FC<OwnProps> = ({
             />
           )
       )}
-      <TableRowAction />
+      {tableRowActions ? (
+        <TableRowAction
+          tableRowActions={tableRowActions}
+          keyIndex={rindex}
+          rowData={rowData}
+        />
+      ) : null}
     </TableRow>
   ));
 };
