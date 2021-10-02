@@ -1,8 +1,9 @@
 import React from "react";
 
 import TablePagination from "../tablePagination";
+import TablePageLimit from "./TablePageLimit";
 import { PaginationProps } from "../DataGrid.types";
-import { PAGE_LIMIT } from "../common/contants";
+import { PAGE_LIMIT, PAGE_LIMITS } from "../common/constants";
 import "./TableFooter.css";
 
 interface OwnProps {
@@ -12,8 +13,6 @@ interface OwnProps {
   updatePageLimit: (val: number) => void;
   onPageLimitChange: (val: number) => void;
 }
-
-interface OwnProps {}
 
 const TableFooter: React.FC<OwnProps> = ({
   pagination,
@@ -28,16 +27,14 @@ const TableFooter: React.FC<OwnProps> = ({
     updatePageLimit(parseInt(event.target.value));
     onPageLimitChange(parseInt(event.target.value));
   };
+
   return (
     <div className="table-footer-container">
-      <select
-        value={currentPageLimit || PAGE_LIMIT}
-        onChange={updateSelectedPageLimit}
-      >
-        {pageLimits?.map((limit) => (
-          <option>{limit}</option>
-        ))}
-      </select>
+      <TablePageLimit
+        currentPageLimit={currentPageLimit || PAGE_LIMIT}
+        pageLimits={pageLimits || PAGE_LIMITS}
+        updateSelectedPageLimit={updateSelectedPageLimit}
+      />
       {pagination && pagination?.show ? (
         <TablePagination pagination={pagination} />
       ) : null}

@@ -1,6 +1,15 @@
-.table-cell-header {
-  resize: horizontal;
-  background: #f3f5f8;
-  padding: 8px 16px;
-  cursor: pointer;
+.table-footer-container {
+  display: flex;
+  align-items: center;
+  padding: 0px 24px;
+}
+
+.table-pagelimit-container {
+  flex: 1;
+}
+
+.table-page-limit-select {
+  padding: 4px;
+  border: 1px solid #eee;
+  border-radius: 5px;
 }
