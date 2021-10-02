@@ -11,9 +11,10 @@ const Home: React.FC = () => {
     totalDataCount,
     pageNumber,
     loading,
+    pageLimit,
+    deleteCustomer,
     updatePageNumber,
     updateCustomers,
-    pageLimit,
     updatePageLimit,
   } = useCustomersHook();
 
@@ -56,7 +57,9 @@ const Home: React.FC = () => {
           {
             name: "Delete",
             onAction: (data: any) => {
-              console.log(data);
+              if (data?._id) {
+                deleteCustomer(data?._id);
+              }
             },
           },
         ]}

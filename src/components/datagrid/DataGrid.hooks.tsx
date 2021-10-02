@@ -32,9 +32,9 @@ const useDataGridhooks = (dataRows: any[], selectedPageLimit?: number) => {
 
   return {
     tableRows,
+    pageLimit,
     sortTableRows,
     updateTableRows,
-    pageLimit,
     updatePageLimit,
   };
 };

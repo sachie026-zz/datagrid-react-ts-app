@@ -19,15 +19,15 @@ const DataGrid: React.FC<DataGridProps> = ({
   tableRowActions,
   pageLimitValues,
   selectedPageLimit,
-  onPageLimitChange,
   noResultLabel,
   loading,
+  onPageLimitChange,
 }: DataGridProps) => {
   const {
     tableRows,
+    pageLimit,
     sortTableRows,
     updateTableRows,
-    pageLimit,
     updatePageLimit,
   } = useDataGridhooks(rows, selectedPageLimit);
 

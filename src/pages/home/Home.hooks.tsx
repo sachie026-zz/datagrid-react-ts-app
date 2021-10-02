@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { getData } from "../../common/apiUtil";
+import { getData, deleteRow } from "../../common/apiUtil";
 import { defaultPageLimit } from "../../common/constants";
 
 interface Customer {
@@ -30,8 +30,23 @@ const useCustomersHook = () => {
         setCustomers(res.data);
         setTotalDataCount(res.totalCount);
         setLoading(false);
+      })
+      .catch((err) => {
+        console.log("Error while fetching customer", err);
       });
     setPageNumber(page);
+  };
+
+  const deleteCustomer = async (customerId: string) => {
+    setLoading(true);
+    await deleteRow(customerId)
+      .then(() => {
+        getCustomers(pageNumber, pageLimit);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log("Error while deleting customer", err);
+      });
   };
 
   const updateCustomers = (page: number, limit: number) => {
@@ -51,9 +66,10 @@ const useCustomersHook = () => {
     customers,
     pageNumber,
     pageLimit,
-    getCustomers,
     totalDataCount,
     loading,
+    getCustomers,
+    deleteCustomer,
     updateCustomers,
     updatePageNumber,
     updatePageLimit,
