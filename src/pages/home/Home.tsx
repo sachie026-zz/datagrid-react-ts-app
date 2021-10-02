@@ -31,9 +31,10 @@ const Home: React.FC = () => {
         pageLimitValues={[5, 10, 15]}
         selectedPageLimit={pageLimit}
         onPageLimitChange={(val) => {
+          // When page limit changes, need to reset page number to 1
           updatePageLimit(val);
-          updateCustomers(pageNumber, val);
-          console.log("val", val);
+          updateCustomers(1, val);
+          updatePageNumber(1);
         }}
         pagination={{
           pageNumber: pageNumber,

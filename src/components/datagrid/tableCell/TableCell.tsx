@@ -15,11 +15,9 @@ const TableCell: React.FC<OwnProps> = ({
     if (onCellClick) onCellClick(cellValue);
   };
   return (
-    <td>
-      <div className={className || `table-cell`} onClick={onClickHandler}>
-        {cellValue}
-      </div>
-    </td>
+    <div className={className || `table-cell`} onClick={onClickHandler}>
+      {cellValue}
+    </div>
   );
 };
 

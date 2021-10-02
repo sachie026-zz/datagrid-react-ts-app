@@ -6,12 +6,13 @@
 
 .table-row {
   border-bottom: 1px solid #f0f0f0;
-  padding: 24px;
-  height: 50px;
+  padding: 16px;
+  display: flex;
 }
 
 .table-cell {
-  padding: 0px 16px;
+  padding: 0px 8px;
+  flex: 1
 }
 
 table {
@@ -20,4 +21,6 @@ table {
   border-spacing: 1px;
   padding: 16px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }

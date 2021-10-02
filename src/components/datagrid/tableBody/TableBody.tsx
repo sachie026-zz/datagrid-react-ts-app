@@ -18,28 +18,24 @@ const TableBody: React.FC<OwnProps> = ({
   columns,
   tableRowActions,
 }: OwnProps) => {
-  return (
-    <tbody>
-      {rows?.map((rowData: any, rindex: number) => (
-        <TableRow
-          key={`tablebodyrow-${gridKey}-row${rindex}`}
-          rowKey={`${gridKey}-row${rindex}`}
-        >
-          {columns.map(
-            (column, cindex: number) =>
-              // check if key is valid and not empty i.e. column &&
-              column && (
-                <TableCell
-                  key={`tablebodycell${gridKey}-cell${rindex}${cindex}`}
-                  cellValue={rowData[column]}
-                />
-              )
-          )}
-          <TableRowAction />
-        </TableRow>
-      ))}
-    </tbody>
-  );
+  return rows?.map((rowData: any, rindex: number) => (
+    <TableRow
+      key={`tablebodyrow-${gridKey}-row${rindex}`}
+      rowKey={`${gridKey}-row${rindex}`}
+    >
+      {columns.map(
+        (column, cindex: number) =>
+          // check if key is valid and not empty i.e. column &&
+          column && (
+            <TableCell
+              key={`tablebodycell${gridKey}-cell${rindex}${cindex}`}
+              cellValue={rowData[column]}
+            />
+          )
+      )}
+      <TableRowAction />
+    </TableRow>
+  ));
 };
 
 export default React.memo(TableBody);
