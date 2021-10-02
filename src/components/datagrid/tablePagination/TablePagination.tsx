@@ -22,7 +22,7 @@ const TablePagination: React.FC<OwnProps> = ({ pagination }: OwnProps) => {
           <TablePaginationAction onPrev={onPrev} onNext={onNext} />
           <TablePaginationData
             firstRowIndex={firstRowIndex}
-            lastRowIndex={lastRowIndex}
+            lastRowIndex={lastRowIndex > totalCount ? totalCount : lastRowIndex}
             totalCount={totalCount}
           />
         </>
