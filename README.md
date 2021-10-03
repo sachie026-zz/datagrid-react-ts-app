@@ -5,22 +5,22 @@ Simple React, TypeScript application to demo the internal data-grid component.
 # Deployment
 
 The app is currently deployed on vercel:
-[a link] ()
+[https://datagrid-react-ts-app.vercel.app/] (https://datagrid-react-ts-app.vercel.app/)
 
 # Setup
 
 Tech stack:
 
-- React
-- TypeScript
-- SASS : styling
-- Jest & RTL : testing
+- **React**
+- **TypeScript**
+- **SASS** : styling
+- **Jest & RTL** : testing
 
 Runtime configurations:
 
-- Webpack : static module bundler for JavaScript applications.
-- Babel : KavaScript transpiler that converts edge JavaScript into plain old ES5 JavaScript that can run in any browser
-- Jest & JSDOM : JavaScript testing framework designed to ensure correctness of any JavaScript codebase
+- **Webpack** : static module bundler for JavaScript applications.
+- **Babel** : KavaScript transpiler that converts edge JavaScript into plain old ES5 JavaScript that can run in any browser
+- **Jest & JSDOM** : JavaScript testing framework designed to ensure correctness of any JavaScript codebase
 
 # How to run the app locally
 
@@ -46,7 +46,27 @@ You need to install:
 
 `How to use`
 
+- Import component
+  _import DataGrid from <...path>;_
+
+- Use it and pass the required props
+  _<DataGrid {...props}/>_
+
 `Props`
+
+- pagination?: [optional] 
+- columns: [required]
+- columnLabels: [required]
+- rows: [required]
+- gridKey: [required]
+- tableRowActions?: [optional]
+- pageLimitValues?: [optional]
+- selectedPageLimit?: [optional]
+- noResultLabel?: [optional]
+- loading?: [optional]
+- editable?: [optional]
+- onPageLimitChange: [required]
+- onEditCellHandler?: [optional]
 
 `Examples`
 
