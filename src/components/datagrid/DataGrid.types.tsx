@@ -2,9 +2,9 @@ export interface PaginationProps {
   pageNumber: number;
   limit: number;
   totalCount: number;
+  show: boolean;
   onNext: () => void;
   onPrev: () => void;
-  show: boolean;
 }
 
 export interface TableRowActionProps {
@@ -25,9 +25,9 @@ export interface DataGridProps {
   tableRowActions?: TableRowActionProps[];
   pageLimitValues?: number[];
   selectedPageLimit?: number;
-  onPageLimitChange: (newLimit: number) => void;
   noResultLabel?: string;
   loading?: boolean;
   editable?: boolean;
+  onPageLimitChange: (newLimit: number) => void;
   onEditCellHandler?: (rowData: any) => void;
 }
