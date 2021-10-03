@@ -31,3 +31,8 @@ export interface DataGridProps {
   onPageLimitChange: (newLimit: number) => void;
   onEditCellHandler?: (rowData: any) => void;
 }
+
+export interface DataGridContextProps {
+  isEditingAnyCell?: boolean;
+  updateIsEditingAnyCell?: (newState: boolean) => void;
+}

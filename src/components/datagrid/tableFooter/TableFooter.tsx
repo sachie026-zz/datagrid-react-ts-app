@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import TablePagination from "../tablePagination";
 import TablePageLimit from "./TablePageLimit";
+import { DataGridContext } from "../DataGrid.context";
 import { PaginationProps } from "../DataGrid.types";
 import { PAGE_LIMIT, PAGE_LIMITS } from "../common/constants";
 import "./TableFooter.css";
@@ -21,6 +22,7 @@ const TableFooter: React.FC<OwnProps> = ({
   updatePageLimit,
   onPageLimitChange,
 }: OwnProps) => {
+  const { isEditingAnyCell } = useContext(DataGridContext);
   const updateSelectedPageLimit = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
@@ -29,7 +31,11 @@ const TableFooter: React.FC<OwnProps> = ({
   };
 
   return (
-    <div className="table-footer-container">
+    <div
+      className={`table-footer-container ${
+        isEditingAnyCell ? "action-less-container" : ""
+      }`}
+    >
       <TablePageLimit
         currentPageLimit={currentPageLimit || PAGE_LIMIT}
         pageLimits={pageLimits || PAGE_LIMITS}

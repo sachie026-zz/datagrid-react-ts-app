@@ -6,6 +6,7 @@ import TableBody from "./tableBody";
 import TableFooter from "./tableFooter";
 import TableLoader from "./tableLoader";
 import TableCenteredContent from "./tableCenteredContent";
+import { DataGridProvider } from "./DataGrid.context";
 import useDataGridhooks from "./DataGrid.hooks";
 import { DataGridProps } from "./DataGrid.types";
 import "./DataGrid.css";
@@ -42,35 +43,37 @@ const DataGrid: React.FC<DataGridProps> = ({
   }
 
   return (
-    <div
-      className={`table-container ${loading ? "action-less-container" : ""}`}
-    >
-      {loading && <TableLoader label="loading..." />}
-      <Table>
-        <TableHeader
-          columns={columns}
-          columnLabels={columnLabels}
-          gridKey={gridKey}
-          onHeaderCellClick={sortTableRows}
-          tableRowActions={tableRowActions}
+    <DataGridProvider>
+      <div
+        className={`table-container ${loading ? "action-less-container" : ""}`}
+      >
+        {loading && <TableLoader label="loading..." />}
+        <Table>
+          <TableHeader
+            columns={columns}
+            columnLabels={columnLabels}
+            gridKey={gridKey}
+            onHeaderCellClick={sortTableRows}
+            tableRowActions={tableRowActions}
+          />
+          <TableBody
+            columns={columns}
+            rows={tableRows}
+            gridKey={gridKey}
+            tableRowActions={tableRowActions}
+            editable={editable}
+            onEditCellHandler={onEditCellHandler}
+          />
+        </Table>
+        <TableFooter
+          pagination={pagination}
+          pageLimits={pageLimitValues}
+          currentPageLimit={pageLimit}
+          updatePageLimit={updatePageLimit}
+          onPageLimitChange={onPageLimitChange}
         />
-        <TableBody
-          columns={columns}
-          rows={tableRows}
-          gridKey={gridKey}
-          tableRowActions={tableRowActions}
-          editable={editable}
-          onEditCellHandler={onEditCellHandler}
-        />
-      </Table>
-      <TableFooter
-        pagination={pagination}
-        pageLimits={pageLimitValues}
-        currentPageLimit={pageLimit}
-        updatePageLimit={updatePageLimit}
-        onPageLimitChange={onPageLimitChange}
-      />
-    </div>
+      </div>
+    </DataGridProvider>
   );
 };
 

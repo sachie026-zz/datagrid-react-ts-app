@@ -4,6 +4,10 @@
   border: 1px solid #eee;
 }
 
+/* 
+  `action-less-container` class is used to disable the actions while some important stuff is happening.
+  i.e. loading data, editing any cell 
+*/
 .action-less-container {
   pointer-events: none;
 }

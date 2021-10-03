@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import TableRow from "../tableRow";
 import TableCell from "../tableCell";
 import TableRowAction from "../tableRowAction";
+import { DataGridContext } from "../DataGrid.context";
 import { TableRowActionProps } from "../DataGrid.types";
 import "./TableHeader.css";
 
@@ -21,6 +22,7 @@ const TableHeader: React.FC<OwnProps> = ({
   tableRowActions,
   onHeaderCellClick,
 }: OwnProps) => {
+  const { isEditingAnyCell } = useContext(DataGridContext);
   return (
     <TableRow rowKey={`${gridKey}-rowheader`}>
       {columns.map(
@@ -31,7 +33,9 @@ const TableHeader: React.FC<OwnProps> = ({
               key={`${gridKey}-cellheader${index}`}
               cellLabel={columnLabels[index]}
               cellValue={column}
-              className="table-cell-header"
+              className={`table-cell-header ${
+                isEditingAnyCell ? "action-less-container" : ""
+              }`}
               onCellClick={onHeaderCellClick}
             />
           )

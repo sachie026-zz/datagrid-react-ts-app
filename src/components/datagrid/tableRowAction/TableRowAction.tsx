@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 
+import { DataGridContext } from "../DataGrid.context";
 import { TableRowActionProps } from "../DataGrid.types";
 import "./TableRowAction.css";
 
@@ -16,8 +17,13 @@ const TableRowAction: React.FC<OwnProps> = ({
   keyIndex,
   rowData,
 }: OwnProps) => {
+  const { isEditingAnyCell } = useContext(DataGridContext);
   return (
-    <div className="tablerow-actions">
+    <div
+      className={`tablerow-actions ${
+        isEditingAnyCell ? "action-less-container" : ""
+      }`}
+    >
       {hidden ? (
         ""
       ) : (

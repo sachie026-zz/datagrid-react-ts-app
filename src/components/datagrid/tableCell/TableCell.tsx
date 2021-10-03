@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import TableCellEditableInput from "./TableCellEditableInput";
+import { DataGridContext } from "../DataGrid.context";
 import "./TableCell.css";
 
 interface OwnProps {
@@ -31,7 +32,12 @@ const TableCell: React.FC<OwnProps> = ({
   onCellClick,
   updateCellContent,
 }: OwnProps) => {
+  const { updateIsEditingAnyCell } = useContext(DataGridContext);
   const [editing, setEditing] = React.useState(false);
+
+  const updateEditingContext = (newState: boolean) => {
+    if (updateIsEditingAnyCell) updateIsEditingAnyCell(newState);
+  };
 
   const onClickHandler = () => {
     if (onCellClick) onCellClick(cellValue);
@@ -40,11 +46,13 @@ const TableCell: React.FC<OwnProps> = ({
   const onCellDoubleClick = () => {
     if (editable) {
       setEditing(true);
+      updateEditingContext(true);
     }
   };
 
   const onCancel = () => {
     setEditing(false);
+    updateEditingContext(false);
   };
 
   const onSaveClick = (updatedCellValue: any) => {
