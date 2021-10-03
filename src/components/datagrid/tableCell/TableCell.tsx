@@ -83,4 +83,4 @@ const TableCell: React.FC<OwnProps> = ({
   );
 };
 
-export default TableCell;
+export default React.memo(TableCell);

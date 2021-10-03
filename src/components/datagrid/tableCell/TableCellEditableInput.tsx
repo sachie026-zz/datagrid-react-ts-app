@@ -36,4 +36,4 @@ const TableCellEditableInput: React.FC<OwnProps> = ({
   );
 };
 
-export default TableCellEditableInput;
+export default React.memo(TableCellEditableInput);
