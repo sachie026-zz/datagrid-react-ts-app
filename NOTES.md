@@ -17,6 +17,11 @@
 
 ![See code coverage here](https://raw.githubusercontent.com/sachie026/datagrid-react-ts-app/master/code-coverage.png)
 
+# Edit cell
+
+`Inline edit cell feature`
+
+![See inline edit and UI here](https://raw.githubusercontent.com/sachie026/datagrid-react-ts-app/master/UI-with-edit-cell.png)
 
 # Custom hooks
 
