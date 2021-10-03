@@ -19,7 +19,8 @@ Tech stack:
 Runtime configurations:
 
 - Webpack : static module bundler for JavaScript applications.
-- Babel : javaScript transpiler that converts edge JavaScript into plain old ES5 JavaScript that can run in any browser
+- Babel : KavaScript transpiler that converts edge JavaScript into plain old ES5 JavaScript that can run in any browser
+- Jest & JSDOM : JavaScript testing framework designed to ensure correctness of any JavaScript codebase
 
 # How to run the app locally
 
@@ -55,4 +56,4 @@ You need to install:
 
 # What more could be added in future or
 
-- 
+-
