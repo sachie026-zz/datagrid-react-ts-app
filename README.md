@@ -70,6 +70,38 @@ You need to install:
 
 `Examples`
 
+```
+
+    <DataGrid
+        editable
+        columns={['key1', 'key2']}
+        columnLabels={["Name", "Age"]}
+        rows={data}
+        gridKey="sample-grid"
+        pageLimitValues={[5, 10, 15]}
+        selectedPageLimit={5}
+        noResultLabel="No data!"
+        onPageLimitChange={<actionhandler>}
+        pagination={{
+            pageNumber: 1,
+            limit: 5,
+            totalCount: 24,
+            show: true,
+            onNext: <actionhandler>,
+            onPrev: <actionhandler>,
+        }}
+        tableRowActions={[
+            {
+            name: "Delete",
+            onAction: <actionhandler>,
+            },
+        ]}
+        loading={false}
+        onEditCellHandler={<actionhandler>}
+        />
+
+```
+
 # Features and Interface
 
 - Editable cells
