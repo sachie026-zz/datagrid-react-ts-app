@@ -5,7 +5,7 @@ Simple React, TypeScript application to demo the internal data-grid component.
 # Deployment
 
 The app is currently deployed on vercel:
-[https://datagrid-react-ts-app.vercel.app/] (https://datagrid-react-ts-app.vercel.app/)
+[Datagrid component react-typescript app] (https://datagrid-react-ts-app.vercel.app/)
 
 # Setup
 
@@ -47,26 +47,26 @@ You need to install:
 `How to use`
 
 - Import component
-  _import DataGrid from <...path>;_
+  **_import DataGrid from <...path>;_**
 
 - Use it and pass the required props
-  _<DataGrid {...props}/>_
+  **_<DataGrid {...props}/>_**
 
 `Props`
 
-- pagination?: [optional] 
-- columns: [required]
-- columnLabels: [required]
-- rows: [required]
-- gridKey: [required]
-- tableRowActions?: [optional]
-- pageLimitValues?: [optional]
-- selectedPageLimit?: [optional]
-- noResultLabel?: [optional]
-- loading?: [optional]
-- editable?: [optional]
-- onPageLimitChange: [required]
-- onEditCellHandler?: [optional]
+- **pagination**: [optional]
+- **columns**: [required]
+- **columnLabels**: [required]
+- **rows**: [required]
+- **gridKey**: [required]
+- **tableRowActions**: [optional]
+- **pageLimitValues**: [optional]
+- **selectedPageLimit**: [optional]
+- **noResultLabel**: [optional]
+- **loading**: [optional]
+- **editable**: [optional]
+- **onPageLimitChange**: [required]
+- **onEditCellHandler**: [optional]
 
 `Examples`
 
@@ -74,6 +74,9 @@ You need to install:
 
 - Used flex-box to make it little bit responsive
 
-# What more could be added in future or
+# Future goals
 
--
+- Bulk row selection
+- Column resize
+- Improve code coverage for the DataGrid component i.e. [from 96.50% to 100%]
+- Table level actions [including bulk actions]
