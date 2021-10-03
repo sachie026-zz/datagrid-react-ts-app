@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useCallback } from "react";
 
 import TableCellEditableInput from "./TableCellEditableInput";
 import { DataGridContext } from "../DataGrid.context";
@@ -50,16 +50,19 @@ const TableCell: React.FC<OwnProps> = ({
     }
   };
 
-  const onCancel = () => {
+  const onCancel = useCallback(() => {
     setEditing(false);
     updateEditingContext(false);
-  };
+  }, [updateEditingContext]);
 
-  const onSaveClick = (updatedCellValue: any) => {
-    if (updateCellContent)
-      updateCellContent(rindex, cindex, updatedCellValue, columnKey || "");
-    onCancel();
-  };
+  const onSaveClick = useCallback(
+    (updatedCellValue: any) => {
+      if (updateCellContent)
+        updateCellContent(rindex, cindex, updatedCellValue, columnKey || "");
+      onCancel();
+    },
+    [updateCellContent]
+  );
 
   return (
     <div

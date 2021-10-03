@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 import TableRow from "../tableRow";
 import TableCell from "../tableCell";
@@ -22,18 +22,21 @@ const TableBody: React.FC<OwnProps> = ({
   editable,
   onEditCellHandler,
 }: OwnProps) => {
-  const updateCellContent = (
-    rindex: number | undefined,
-    cindex: number | undefined,
-    data: any,
-    columnKey: string
-  ) => {
-    if (rindex !== undefined && cindex !== undefined && onEditCellHandler) {
-      const selectedRowData = rows[rindex];
-      selectedRowData[columnKey] = data;
-      onEditCellHandler(selectedRowData);
-    }
-  };
+  const updateCellContent = useCallback(
+    (
+      rindex: number | undefined,
+      cindex: number | undefined,
+      data: any,
+      columnKey: string
+    ) => {
+      if (rindex !== undefined && cindex !== undefined && onEditCellHandler) {
+        const selectedRowData = rows[rindex];
+        selectedRowData[columnKey] = data;
+        onEditCellHandler(selectedRowData);
+      }
+    },
+    [rows, onEditCellHandler]
+  );
 
   return rows?.map((rowData: any, rindex: number) => (
     <TableRow
