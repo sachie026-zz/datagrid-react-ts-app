@@ -42,7 +42,9 @@ const DataGrid: React.FC<DataGridProps> = ({
   }
 
   return (
-    <div className="table-container">
+    <div
+      className={`table-container ${loading ? "action-less-container" : ""}`}
+    >
       {loading && <TableLoader label="loading..." />}
       <Table>
         <TableHeader

@@ -4,6 +4,10 @@
   border: 1px solid #eee;
 }
 
+.action-less-container {
+  pointer-events: none;
+}
+
 table {
   border-collapse: separate;
   text-indent: initial;

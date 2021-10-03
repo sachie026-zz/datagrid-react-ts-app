@@ -1,13 +1,19 @@
+/*
+  Custom hook to separate out the logic from the UI componets.
+  This hook handles the API calls and all data-grid operations such as:
+  - pagination handling
+  - mapping API calls to grid operation 
+*/
 import React, { useState, useEffect } from "react";
 
 import { getData, deleteRow, updateRow } from "../../common/apiUtil";
-import { defaultPageLimit } from "../../common/constants";
+import { DEFAULT_PAGE_LIMIT } from "../../common/constants";
 import { Customer } from "../../common/appTypes";
 
 const useCustomersHook = () => {
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [pageNumber, setPageNumber] = useState(0);
-  const [pageLimit, setPageLimit] = useState(defaultPageLimit);
+  const [pageLimit, setPageLimit] = useState(DEFAULT_PAGE_LIMIT);
   const [loading, setLoading] = useState(false);
   const [totalDataCount, setTotalDataCount] = useState(0);
 
@@ -34,8 +40,8 @@ const useCustomersHook = () => {
     setLoading(true);
     await deleteRow(customerId)
       .then(() => {
-        getCustomers(pageNumber, pageLimit);
         setLoading(false);
+        getCustomers(pageNumber, pageLimit);
       })
       .catch((err) => {
         console.log("Error while deleting customer", err);
@@ -46,8 +52,8 @@ const useCustomersHook = () => {
     setLoading(true);
     updateRow(updatedRowData._id, updatedRowData)
       .then(() => {
-        getCustomers(pageNumber, pageLimit);
         setLoading(false);
+        getCustomers(pageNumber, pageLimit);
       })
       .catch((err) => {
         console.log("Error while updating customer", err);
@@ -60,6 +66,31 @@ const useCustomersHook = () => {
 
   const updatePageLimit = (limit: number) => {
     setPageLimit(limit);
+  };
+
+  const onNextPageClickHandler = (isPossibleToFetchNextData: boolean) => {
+    if (isPossibleToFetchNextData) {
+      updateCustomers(pageNumber + 1, pageLimit);
+    }
+  };
+
+  const onPrevPageClickHandler = (isPossibleToFetchPrevData: boolean) => {
+    if (isPossibleToFetchPrevData) {
+      updateCustomers(pageNumber - 1, pageLimit);
+    }
+  };
+
+  const onDeleteActionHandler = (data: any) => {
+    if (data?._id) {
+      deleteCustomer(data?._id);
+    }
+  };
+
+  const onPageLimitChangeHandler = (val: number) => {
+    // When page limit changes, need to reset page number to 1
+    updatePageLimit(val);
+    updateCustomers(1, val);
+    updatePageNumber(1);
   };
 
   useEffect(() => {
@@ -79,6 +110,10 @@ const useCustomersHook = () => {
     updatePageNumber,
     updatePageLimit,
     onUpdateRowData,
+    onPageLimitChangeHandler,
+    onNextPageClickHandler,
+    onPrevPageClickHandler,
+    onDeleteActionHandler,
   };
 };
 

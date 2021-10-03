@@ -2,14 +2,14 @@ import {
   BASE_URL,
   CUSTOMER_URL,
   HEADERS,
-  defaultPageLimit,
-  defaultPageNumber,
+  DEFAULT_PAGE_LIMIT,
+  DEFAULT_PAGE_NUMBER,
 } from "./constants";
 import { Customer } from "./appTypes";
 
 export const getData = async (
-  pageNumber: number = defaultPageNumber,
-  limit: number = defaultPageLimit
+  pageNumber: number = DEFAULT_PAGE_NUMBER,
+  limit: number = DEFAULT_PAGE_LIMIT
 ) => {
   return await fetch(
     `${BASE_URL}/${CUSTOMER_URL}?pageNumber=${pageNumber}&limit=${limit}`

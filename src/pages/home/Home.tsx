@@ -3,6 +3,11 @@ import React from "react";
 import DataGrid from "../../components/datagrid";
 import HomeHeader from "./header";
 import useCustomersHook from "./Home.hooks";
+import {
+  CUSTOMER_TABLE_COLUMN_KEYS,
+  CUSTOMER_TABLE_COLUMN_LABELS,
+  GRID_PAGE_LIMIT_VALUES,
+} from "../../common/constants";
 import "./Home.css";
 
 const Home: React.FC = () => {
@@ -12,11 +17,11 @@ const Home: React.FC = () => {
     pageNumber,
     loading,
     pageLimit,
-    deleteCustomer,
-    updatePageNumber,
-    updateCustomers,
-    updatePageLimit,
     onUpdateRowData,
+    onPageLimitChangeHandler,
+    onNextPageClickHandler,
+    onPrevPageClickHandler,
+    onDeleteActionHandler,
   } = useCustomersHook();
 
   const isPossibleToFetchNextData = pageNumber * pageLimit < totalDataCount;
@@ -27,43 +32,26 @@ const Home: React.FC = () => {
       <HomeHeader />
       <DataGrid
         editable
-        columns={["name", "due_amount", "total_products"]}
-        columnLabels={["Name", "Due Amount", "Total Products"]}
+        columns={CUSTOMER_TABLE_COLUMN_KEYS}
+        columnLabels={CUSTOMER_TABLE_COLUMN_LABELS}
         rows={customers}
         gridKey="customer-grid"
-        pageLimitValues={[5, 10, 15]}
+        pageLimitValues={GRID_PAGE_LIMIT_VALUES}
         selectedPageLimit={pageLimit}
         noResultLabel="No curstomers data!"
-        onPageLimitChange={(val) => {
-          // When page limit changes, need to reset page number to 1
-          updatePageLimit(val);
-          updateCustomers(1, val);
-          updatePageNumber(1);
-        }}
+        onPageLimitChange={onPageLimitChangeHandler}
         pagination={{
           pageNumber: pageNumber,
           limit: pageLimit,
           totalCount: totalDataCount,
           show: true,
-          onNext: () => {
-            if (isPossibleToFetchNextData) {
-              updateCustomers(pageNumber + 1, pageLimit);
-            }
-          },
-          onPrev: () => {
-            if (isPossibleToFetchPrevData) {
-              updateCustomers(pageNumber - 1, pageLimit);
-            }
-          },
+          onNext: () => onNextPageClickHandler(isPossibleToFetchNextData),
+          onPrev: () => onPrevPageClickHandler(isPossibleToFetchPrevData),
         }}
         tableRowActions={[
           {
             name: "Delete",
-            onAction: (data: any) => {
-              if (data?._id) {
-                deleteCustomer(data?._id);
-              }
-            },
+            onAction: onDeleteActionHandler,
           },
         ]}
         loading={loading}
