@@ -4,7 +4,7 @@
   - pagination handling
   - mapping API calls to grid operation 
 */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import { getData, deleteRow, updateRow } from "../../common/apiUtil";
 import { DEFAULT_PAGE_LIMIT } from "../../common/constants";
@@ -48,17 +48,20 @@ const useCustomersHook = () => {
       });
   };
 
-  const onUpdateRowData = (updatedRowData: Customer) => {
-    setLoading(true);
-    updateRow(updatedRowData._id, updatedRowData)
-      .then(() => {
-        setLoading(false);
-        getCustomers(pageNumber, pageLimit);
-      })
-      .catch((err) => {
-        console.log("Error while updating customer", err);
-      });
-  };
+  const onUpdateRowData = useCallback(
+    (updatedRowData: Customer) => {
+      setLoading(true);
+      updateRow(updatedRowData._id, updatedRowData)
+        .then(() => {
+          setLoading(false);
+          getCustomers(pageNumber, pageLimit);
+        })
+        .catch((err) => {
+          console.log("Error while updating customer", err);
+        });
+    },
+    [pageNumber, pageLimit]
+  );
 
   const updateCustomers = (page: number, limit: number) => {
     getCustomers(page, limit);
@@ -68,30 +71,39 @@ const useCustomersHook = () => {
     setPageLimit(limit);
   };
 
-  const onNextPageClickHandler = (isPossibleToFetchNextData: boolean) => {
-    if (isPossibleToFetchNextData) {
-      updateCustomers(pageNumber + 1, pageLimit);
-    }
-  };
+  const onNextPageClickHandler = useCallback(
+    (isPossibleToFetchNextData: boolean) => {
+      if (isPossibleToFetchNextData) {
+        updateCustomers(pageNumber + 1, pageLimit);
+      }
+    },
+    [pageNumber, pageLimit]
+  );
 
-  const onPrevPageClickHandler = (isPossibleToFetchPrevData: boolean) => {
-    if (isPossibleToFetchPrevData) {
-      updateCustomers(pageNumber - 1, pageLimit);
-    }
-  };
+  const onPrevPageClickHandler = useCallback(
+    (isPossibleToFetchPrevData: boolean) => {
+      if (isPossibleToFetchPrevData) {
+        updateCustomers(pageNumber - 1, pageLimit);
+      }
+    },
+    [pageNumber, pageLimit]
+  );
 
-  const onDeleteActionHandler = (data: any) => {
-    if (data?._id) {
-      deleteCustomer(data?._id);
-    }
-  };
+  const onDeleteActionHandler = useCallback(
+    (data: any) => {
+      if (data?._id) {
+        deleteCustomer(data?._id);
+      }
+    },
+    [pageNumber, pageLimit]
+  );
 
-  const onPageLimitChangeHandler = (val: number) => {
+  const onPageLimitChangeHandler = useCallback((val: number) => {
     // When page limit changes, need to reset page number to 1
     updatePageLimit(val);
     updateCustomers(1, val);
     updatePageNumber(1);
-  };
+  }, []);
 
   useEffect(() => {
     // On component mount: fetch customers for page number 1 and initial page limit

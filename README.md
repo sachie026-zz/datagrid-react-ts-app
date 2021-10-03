@@ -104,16 +104,16 @@ You need to install:
 
 # Features and Interface
 
-- Editable cells
-- Grid column sorting
-- Pagination
-- Custom row actions
-- Update page limit
-- Show columns based on the input
-- Custom column headers
-- Responsive data grid
-- Loading state
-- Flexibility with input props
+- **Editable cells**: **double click** the column cells except header.
+- **Grid column sorting**: **click the column headers** sorting works for numbers
+- **Pagination**
+- **Custom row actions**
+- **Update page limit**: use the **dropdown** shown in the table footer
+- **Show columns based on the input**: pass in columns to show out of the passed row data
+- **Custom column headers**
+- **Responsive data grid**
+- **Loading state**: 
+- **Flexibility with input props**
 
 # Future goals
 
