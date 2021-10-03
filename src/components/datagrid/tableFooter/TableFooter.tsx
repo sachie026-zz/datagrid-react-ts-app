@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useCallback } from "react";
 
 import TablePagination from "../tablePagination";
 import TablePageLimit from "./TablePageLimit";
@@ -23,12 +23,13 @@ const TableFooter: React.FC<OwnProps> = ({
   onPageLimitChange,
 }: OwnProps) => {
   const { isEditingAnyCell } = useContext(DataGridContext);
-  const updateSelectedPageLimit = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    updatePageLimit(parseInt(event.target.value));
-    onPageLimitChange(parseInt(event.target.value));
-  };
+  const updateSelectedPageLimit = useCallback(
+    (event: React.ChangeEvent<HTMLSelectElement>) => {
+      updatePageLimit(parseInt(event.target.value));
+      onPageLimitChange(parseInt(event.target.value));
+    },
+    []
+  );
 
   return (
     <div

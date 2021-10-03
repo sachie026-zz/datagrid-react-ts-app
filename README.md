@@ -122,3 +122,4 @@ You need to install:
 - Improve code coverage for the DataGrid component i.e. [from 96.50% to 100%]
 - Table level actions [including bulk actions]
 - Flexibilty around pagination options i.e. infinite scrolling
+- Use icons package to show different actions i.e. next page, prev page, sorting column etc

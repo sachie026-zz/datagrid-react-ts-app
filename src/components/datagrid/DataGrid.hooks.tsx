@@ -3,7 +3,7 @@
     i.e, page limit, data rows, sort action etc.
 */
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 
 import { TableRowProps } from "./DataGrid.types";
 
@@ -12,23 +12,26 @@ const useDataGridhooks = (dataRows: any[], selectedPageLimit?: number) => {
   const [pageLimit, setPageLimit] = useState(selectedPageLimit);
   const [sortDescOrder, setSortDescOrder] = useState(false);
 
-  const sortTableRows = (key: string) => {
-    const tempRows = new Array(...tableRows);
-    tempRows.sort((row1: any, row2: any) =>
-      sortDescOrder ? row1[key] - row2[key] : row2[key] - row1[key]
-    );
+  const sortTableRows = useCallback(
+    (key: string) => {
+      const tempRows = new Array(...tableRows);
+      tempRows.sort((row1: any, row2: any) =>
+        sortDescOrder ? row1[key] - row2[key] : row2[key] - row1[key]
+      );
 
-    setTableRows(tempRows);
-    setSortDescOrder((prev) => !prev);
-  };
+      setTableRows(tempRows);
+      setSortDescOrder((prev) => !prev);
+    },
+    [tableRows]
+  );
 
-  const updateTableRows = (updatedRows: TableRowProps[]) => {
+  const updateTableRows = useCallback((updatedRows: TableRowProps[]) => {
     setTableRows(updatedRows);
-  };
+  }, []);
 
-  const updatePageLimit = (newPageLimit: number) => {
+  const updatePageLimit = useCallback((newPageLimit: number) => {
     setPageLimit(newPageLimit);
-  };
+  }, []);
 
   return {
     tableRows,
