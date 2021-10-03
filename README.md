@@ -70,9 +70,18 @@ You need to install:
 
 `Examples`
 
-# Features
+# Features and Interface
 
-- Used flex-box to make it little bit responsive
+- Editable cells
+- Grid column sorting
+- Pagination
+- Custom row actions
+- Update page limit
+- Show columns based on the input
+- Custom column headers
+- Responsive data grid
+- Loading state
+- Flexibility with input props
 
 # Future goals
 
@@ -80,3 +89,4 @@ You need to install:
 - Column resize
 - Improve code coverage for the DataGrid component i.e. [from 96.50% to 100%]
 - Table level actions [including bulk actions]
+- Flexibilty around pagination options i.e. infinite scrolling
