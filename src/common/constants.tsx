@@ -14,7 +14,7 @@ export const CUSTOMER_TABLE_COLUMN_KEYS = [
 ];
 export const CUSTOMER_TABLE_COLUMN_LABELS = [
   "Name",
-  "Due Amount",
+  "Due Amount [$]",
   "Total Products",
 ];
 export const GRID_PAGE_LIMIT_VALUES = [5, 10, 15];
