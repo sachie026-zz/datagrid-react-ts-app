@@ -5,6 +5,7 @@ Simple React, TypeScript application to demo the internal data-grid component.
 # Deployment
 
 The app is currently deployed on vercel: (https://datagrid-react-ts-app.vercel.app/)
+[Check here](https://datagrid-react-ts-app.vercel.app/){:target="\_blank" rel="noopener"}
 
 # Setup
 
