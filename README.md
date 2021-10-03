@@ -4,8 +4,7 @@ Simple React, TypeScript application to demo the internal data-grid component.
 
 # Deployment
 
-The app is currently deployed on vercel:
-[Datagrid component react-typescript app] (https://datagrid-react-ts-app.vercel.app/)
+The app is currently deployed on vercel: (https://datagrid-react-ts-app.vercel.app/)
 
 # Setup
 
@@ -13,7 +12,7 @@ Tech stack:
 
 - **React**
 - **TypeScript**
-- **SASS** : styling
+- **CSS** : styling
 - **Jest & RTL** : testing
 
 Runtime configurations:
@@ -68,7 +67,7 @@ You need to install:
 - **onPageLimitChange**: [required]
 - **onEditCellHandler**: [optional]
 
-`Examples`
+`Example`
 
 ```
 
