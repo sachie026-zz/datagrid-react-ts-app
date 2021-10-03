@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1633194902367" clover="3.2.0">
-  <project timestamp="1633194902367" name="All files">
-    <metrics statements="144" coveredstatements="119" conditionals="43" coveredconditionals="16" methods="23" coveredmethods="12" elements="210" coveredelements="147" complexity="0" loc="144" ncloc="144" packages="9" files="25" classes="25"/>
+<coverage generated="1633235088802" clover="3.2.0">
+  <project timestamp="1633235088802" name="All files">
+    <metrics statements="148" coveredstatements="130" conditionals="45" coveredconditionals="22" methods="24" coveredmethods="16" elements="217" coveredelements="168" complexity="0" loc="148" ncloc="148" packages="10" files="26" classes="26"/>
     <package name="common">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="constants.tsx" path="/Users/sachie/sach/upflow/datagrid-react-typescript/src/components/datagrid/common/constants.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="table">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Table.tsx" path="/Users/sachie/sach/upflow/datagrid-react-typescript/src/components/datagrid/table/Table.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
       </file>
     </package>
     <package name="tableCell">
@@ -159,13 +169,13 @@
       </file>
     </package>
     <package name="tablePagination">
-      <metrics statements="26" coveredstatements="26" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <metrics statements="26" coveredstatements="26" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="3"/>
       <file name="TablePagination.css" path="/Users/sachie/sach/upflow/datagrid-react-typescript/src/components/datagrid/tablePagination/TablePagination.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
       </file>
       <file name="TablePagination.tsx" path="/Users/sachie/sach/upflow/datagrid-react-typescript/src/components/datagrid/tablePagination/TablePagination.tsx">
-        <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
         <line num="1" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
@@ -206,15 +216,15 @@
       <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="TableRow.css" path="/Users/sachie/sach/upflow/datagrid-react-typescript/src/components/datagrid/tableRow/TableRow.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
+        <line num="1" count="2" type="stmt"/>
       </file>
       <file name="TableRow.tsx" path="/Users/sachie/sach/upflow/datagrid-react-typescript/src/components/datagrid/tableRow/TableRow.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
       </file>
       <file name="index.tsx" path="/Users/sachie/sach/upflow/datagrid-react-typescript/src/components/datagrid/tableRow/index.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -223,24 +233,24 @@
       </file>
     </package>
     <package name="tableRowAction">
-      <metrics statements="14" coveredstatements="7" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <metrics statements="14" coveredstatements="14" conditionals="6" coveredconditionals="5" methods="3" coveredmethods="3"/>
       <file name="TableRowAction.css" path="/Users/sachie/sach/upflow/datagrid-react-typescript/src/components/datagrid/tableRowAction/TableRowAction.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
+        <line num="1" count="2" type="stmt"/>
       </file>
       <file name="TableRowAction.tsx" path="/Users/sachie/sach/upflow/datagrid-react-typescript/src/components/datagrid/tableRowAction/TableRowAction.tsx">
-        <metrics statements="11" coveredstatements="4" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="25" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
+        <metrics statements="11" coveredstatements="11" conditionals="6" coveredconditionals="5" methods="3" coveredmethods="3"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="25" count="3" type="cond" truecount="3" falsecount="1"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
       </file>
       <file name="index.tsx" path="/Users/sachie/sach/upflow/datagrid-react-typescript/src/components/datagrid/tableRowAction/index.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

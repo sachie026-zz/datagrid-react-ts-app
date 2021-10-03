@@ -1,9 +1,8 @@
 import React from "react";
 
-import "./TableRow.css"
+import "./TableRow.css";
 
 interface OwnProps {
-  data?: string;
   rowKey: string;
   children?: React.ReactNode;
 }

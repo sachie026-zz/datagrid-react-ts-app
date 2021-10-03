@@ -14,6 +14,7 @@ Tech stack:
 - React
 - TypeScript
 - SASS : styling
+- Jest & RTL : testing
 
 Runtime configurations:
 
@@ -38,6 +39,7 @@ You need to install:
 - Move to the repo directory
 - Install the dependencies: `yarn install` or `npm install`
 - Run `yarn start` or `npm start` and see the sample app at `http://localhost:3000`
+- Run `yarn test` or `npm test` and see the test results with basic code coverage.
 
 # DataGrid Component
 
