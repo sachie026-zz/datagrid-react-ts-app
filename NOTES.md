@@ -21,7 +21,7 @@
 
 `Inline edit cell feature`
 
-![See inline edit and UI here](https://raw.githubusercontent.com/sachie026/datagrid-react-ts-app/master/UI-with-edit-cell.png)
+![See inline edit and UI here](https://raw.githubusercontent.com/sachie026/datagrid-react-ts-app/master/inline-edit.png)
 
 # Custom hooks
 
